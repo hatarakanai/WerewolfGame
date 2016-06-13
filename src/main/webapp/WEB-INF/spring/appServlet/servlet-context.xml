@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
+
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
@@ -20,9 +20,23 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
+
 	<context:component-scan base-package="jp.co.werewolf" />
-	
-	
-	
+
+	<!-- mysql -->
+	<beans:bean id="dataSource"
+	    class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+	    <beans:property name="driverClassName" value="${jdbc.driverClassName}" />
+	    <beans:property name="url" value="${jdbc.url}" />
+	    <beans:property name="username" value="${jdbc.username}" />
+	    <beans:property name="password" value="${jdbc.password}" />
+	</beans:bean>
+
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+
+	<beans:bean class="org.springframework.jdbc.core.JdbcTemplate">
+	    <beans:constructor-arg ref="dataSource" />
+	</beans:bean>
+
+
 </beans:beans>
