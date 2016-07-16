@@ -14,6 +14,13 @@ public class TableDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+	/**
+	 * 第1引数は取得結果を保持したいDtoのクラス
+	 * 　SQL取得結果は引数に指定したクラスのメンバ変数と名前が一致するものを
+	 * 　自動的にセットしてくれる（ジェネリックメソッドというjavaの仕組みを利用）
+	 *　 ただし、SQLはスネーク、Dto側はキャメルで変数を記載する
+	 * 第2引数は取得するテーブルの名前。
+	 */
     public <T> List<T>  selectAll(Class<T> clazz, String tableName) {
 
     	// レコードを取得
