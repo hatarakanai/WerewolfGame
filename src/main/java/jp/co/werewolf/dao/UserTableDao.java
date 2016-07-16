@@ -16,7 +16,7 @@ public class UserTableDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<UserTableDto> getAllRecord(){
+    public List<UserTableDto> selectAll(){
 
     	List<Map<String, Object>>  list = jdbcTemplate.queryForList("select * from USER");
 

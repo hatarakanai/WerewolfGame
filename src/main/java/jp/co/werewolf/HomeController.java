@@ -38,7 +38,7 @@ public class HomeController {
 
 		model.addAttribute("name", "S.funaki" );
 
-		List<UserTableDto> userList = dao.getAllRecord();
+		List<UserTableDto> userList = dao.selectAll();
 
 
 		for(UserTableDto rec : userList){
