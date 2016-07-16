@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import jp.co.werewolf.dao.UserTableDto;
@@ -19,10 +17,6 @@ public class UserTableDao {
     private JdbcTemplate jdbcTemplate;
 
     public List<UserTableDto> getAllRecord(){
-
-    	if(jdbcTemplate == null){
-    		;
-    	}
 
     	List<Map<String, Object>>  list = jdbcTemplate.queryForList("select * from USER");
 
