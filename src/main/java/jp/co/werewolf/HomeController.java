@@ -28,10 +28,11 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	/**
-	 * Simply selects the home view to render by returning its name.
+	 * URL: http://localhost:8080/werewolf/makeRoom/
 	 */
 	@RequestMapping(value = "/makeRoom/", method = RequestMethod.GET)
 	public String makeRoom(Locale locale, Model model) {
+
 		logger.info("Welcome home! The client locale is {}.", locale);
 
 		model.addAttribute("name", "S.funaki" );
